@@ -1,6 +1,8 @@
+//Database meme schema and indexes defined here
 import mongoose from 'mongoose';
 
-const postSchema=mongoose.Schema({
+const memeSchema=mongoose.Schema({
+    
 caption:{
     type: String,
     required: true
@@ -25,5 +27,13 @@ dateOfCreation: {
 },
 });
 
-const PostMessage = mongoose.model('PostMessage',postSchema);
-export default PostMessage;
+memeSchema.index({
+    caption: 1,
+    name: 1,
+    url: 1
+  }, {
+    unique: true,
+});
+
+const MemeSchema = mongoose.model('MemeSchema',memeSchema);
+export default MemeSchema;

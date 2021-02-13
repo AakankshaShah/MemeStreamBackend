@@ -1,3 +1,4 @@
+//Declaration of all the routes for the memes
 import express from 'express';
 
 import { getMemes ,createMeme,updateMeme,deleteMeme ,likeMeme,getMemesByID} from '../controllers/memes.js'

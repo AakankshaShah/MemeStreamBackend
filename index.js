@@ -1,3 +1,4 @@
+//Root file of backend
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
@@ -9,13 +10,15 @@ import memeRoutes from './routes/memes.js';
 const app=express();
 
 
-
+//Used for parsing the data received
 app.use(bodyParser.json({limit: "30mb",extended: true}));
 app.use(bodyParser.urlencoded({limit: "30mb",extended: true}));
 
+//For allowing all the request from any origin
 app.use(cors());
 app.use('/memes',memeRoutes);
 
+//Connecting with database
 const CONNECTION_URL='mongodb+srv://Aakanksha:akshadb21@cluster0.gxm4g.mongodb.net/akshadb?retryWrites=true&w=majority';
 
 const PORT=process.env.PORT || 5000;
